@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+
+</head>
+
+<body class="bg-zinc-900">
+
+    <form
+        class=" w-5/6 text-white bg-zinc-800 shadow-xl shadow-zinc-950 grid gap-y-2 md:w-1/2 lg:w-1/3 mx-auto mt-10 px-14 py-14 rounded-2xl">
+
+        <h1 class="text-white font-bold text-center text-2xl mb-4">Form Validation</h1>
+
+        <label for="name"> </label>
+        <input type="text" placeholder="Enter your Name" id="name"
+            class="bg-zinc-700 rounded-xl px-2 py-2 outline-none focus:bg-zinc-100 focus:text-black">
+
+        <label for="email"> </label>
+        <input type="email" placeholder="Email in Valid Format" id="email"
+            class="bg-zinc-700 rounded-xl px-2 py-2 outline-none focus:bg-zinc-100 focus:text-black">
+
+        <label for="age"></label>
+        <input type="number" placeholder="Enter your Age" id="age"
+            class="bg-zinc-700 rounded-xl px-2 py-2 outline-none focus:bg-zinc-100 focus:text-black">
+
+        <label for="Mobile_No"></label>
+        <input type="number" placeholder="Enter Mobile No" id="Mobile_No"
+            class="bg-zinc-700 rounded-xl px-2 py-2 outline-none focus:bg-zinc-100 focus:text-black">
+
+        <label for="password"></label>
+        <input type="password" placeholder="Password in Valid Format" id="password"
+            class="bg-zinc-700 rounded-xl px-2 py-2 outline-none focus:bg-zinc-100 focus:text-black">
+
+
+        <button
+            class="px-4 bg-blue-500 py-2 rounded-full text-white transition duration-400 hover:scale-105 hover:bg-blue-600 mt-8"
+            onclick="checkValidate()">Click
+            here</button>
+
+    </form>
+
+    <script>
+
+        let name = document.getElementById('name');
+        let age = document.getElementById('age');
+        let Mobile_No = document.getElementById('Mobile_No');
+        let email = document.getElementById('email');
+        let password = document.getElementById('password');
+
+        let emailValid = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+
+        let passwordValid = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@.#$!%*?&^])[A-Za-z\d@.#$!%*?&]{8,15}$/;
+
+        const checkValidate = () => {
+
+            if (name.value.length === 0) {
+                alert('please enter name')
+            }
+
+            else if (!email.value.match(emailValid)) {
+                alert('enter valid email')
+            }
+
+            else if (age.value < 18) {
+                alert('age should be greater than 18')
+            }
+
+            else if (Mobile_No.value.length < 10 || Mobile_No.value.length > 10) {
+                alert('please enter 10 digit mobile no')
+            }
+
+            else if (!password.value.match(passwordValid)) {
+                alert('enter valid password')
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
